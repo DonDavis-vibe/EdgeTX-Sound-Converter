@@ -22,10 +22,20 @@ Tired of manually messing with Audacity just to get a 16kHz Mono WAV file with a
 
 ## 🚀 Installation & Usage
 
+### 🪟 Windows (Easiest)
 1. Head over to the **Releases** tab on GitHub.
 2. Download `edgetx_converter_fixed.exe` (or whatever the latest version is named).
 3. Double-click to run! *(Note: The very first time it runs, it will silently download the necessary FFmpeg audio engines in the background so you don't have to).*
-4. Click **Select Audio Files** and pick any songs or voice clips you want to use.
+
+### 🍏 macOS & 🐧 Linux
+Because this tool is built with Python and CustomTkinter, it runs natively on any OS!
+1. Ensure you have Python 3 installed.
+2. Clone this repository: `git clone https://github.com/DonDavis-vibe/EdgeTX-Sound-Converter`
+3. Install the required packages: `pip install -r requirements.txt`
+4. Run the app: `python edgetx_converter.py`
+
+### 🎛️ How to Use
+1. Click **Select Audio Files** and pick any songs or voice clips you want to use.
 5. *(Optional)* Click on a file in the list and use the sliders to **trim** a specific section. Hit **Preview Cut** to listen!
 6. Select your output quality (Standard is safest for older radios).
 7. Click **Convert All Files** and pick where you want to save them (e.g., straight to your radio's SD card `SOUNDS/en` folder!).
@@ -44,11 +54,12 @@ pip install -r requirements.txt
 python edgetx_converter.py
 ```
 
-### Building the `.exe`
-We use PyInstaller to bundle the app. A quick batch script is included for Windows:
+### Building the Standalone `.exe` (Windows)
+We use PyInstaller to bundle the app into a single executable. A quick batch script is included for convenience:
 ```bash
 .\build_exe.bat
 ```
+*(Mac and Linux users can also run `PyInstaller` manually to create `.app` or Linux binaries).*
 
 ---
 
