@@ -20,7 +20,7 @@ Tired of manually messing with Audacity just to get a 16kHz Mono WAV file with a
 
 ---
 
-## 🚀 How to Use (For Users)
+## 🚀 Installation & Usage
 
 1. Head over to the **Releases** tab on GitHub.
 2. Download `edgetx_converter_fixed.exe` (or whatever the latest version is named).
@@ -32,7 +32,7 @@ Tired of manually messing with Audacity just to get a 16kHz Mono WAV file with a
 
 ---
 
-## 💻 For Developers
+## 💻 Development Setup
 
 Want to tweak the code, change the UI, or build it yourself?
 
