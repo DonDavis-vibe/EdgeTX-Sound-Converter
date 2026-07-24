@@ -1,8 +1,15 @@
 import os
+import sys
 import re
 import threading
 import customtkinter as ctk
 from tkinter import filedialog, messagebox
+
+# Fix for PyInstaller --windowed mode (sys.stdout is None)
+if sys.stdout is None:
+    sys.stdout = open(os.devnull, "w")
+if sys.stderr is None:
+    sys.stderr = open(os.devnull, "w")
 
 # Add ffmpeg and ffprobe to PATH so pydub can read MP3s
 import static_ffmpeg
