@@ -1,21 +1,42 @@
-# EdgeTX Sound Converter
+# 📻 EdgeTX Sound Converter
 
-A sleek, lightweight, cross-platform tool to effortlessly prep, trim, and convert audio files for your EdgeTX radio. Developed by FPV.Davis.
+![GitHub License](https://img.shields.io/github/license/DonDavis-vibe/EdgeTX-Sound-Converter)
+![Platform](https://img.shields.io/badge/Platform-Windows-blue)
 
-## Features
-- **Batch Processing**: Load multiple MP3, WAV, or M4A files at once.
-- **Audio Snipping**: Click on any file in your queue to visually trim it. The app remembers your cuts for each individual file.
-- **Preview Playback**: Listen to your exact cut before converting, straight from the UI.
-- **Auto-Normalization**: Automatically strips dead silence from the start/end and equalizes the volume so all your callouts sound perfect.
-- **Strict Format Enforcement**: Automatically converts and renames files to match strict EdgeTX requirements (16kHz, Mono, 16-bit, max 6 characters).
-- **High Quality Mode**: An optional bypass switch for modern radios (like the EL18) that support rich 44.1kHz Stereo sound.
+A sleek, standalone tool built by **FPV.Davis** to effortlessly prep, trim, and convert audio files for your EdgeTX radio (and modern radios like the EL18). 
 
-## How to Run (For Users)
-Simply download the standalone `.exe` from the Releases page (or the `dist` folder). 
-**No Python or setup required.** Just double click and use!
+Tired of manually messing with Audacity just to get a 16kHz Mono WAV file with a 6-character name? This app automates everything. Just drop in your favorite songs, sound bites, or voice clips, and let the converter handle the rest.
 
-## How to Run (For Developers)
-If you want to run the python script directly:
+---
+
+## ✨ Key Features
+
+- ✂️ **Visual Batch Snipping**: Select exactly what part of a song you want. The app remembers your custom slider cuts for *each individual file* in your batch!
+- 🔈 **Live Audio Preview**: Listen to your trimmed snippets instantly before you commit to converting.
+- 🎚️ **Smart Auto-Normalization**: Automatically strips dead silence from the beginning and end of clips, and normalizes the volume so all your callouts match perfectly on the flight line.
+- 🎯 **Strict Format Enforcement**: Automatically converts anything (MP3, WAV, M4A, etc.) to the strict EdgeTX requirements: `16kHz`, `Mono`, `16-bit`, and standardizes the filename to max `6 characters`.
+- 🎧 **High Quality Bypass**: Have a modern radio (like the FlySky EL18)? Switch to "High Quality" mode to export rich `44.1kHz Stereo` sound instead!
+- 📦 **100% Standalone**: No Python, no dependencies, no FFmpeg installs needed. Just run the `.exe`.
+
+---
+
+## 🚀 How to Use (For Users)
+
+1. Head over to the **Releases** tab on GitHub.
+2. Download `edgetx_converter_fixed.exe` (or whatever the latest version is named).
+3. Double-click to run! *(Note: The very first time it runs, it will silently download the necessary FFmpeg audio engines in the background so you don't have to).*
+4. Click **Select Audio Files** and pick any songs or voice clips you want to use.
+5. *(Optional)* Click on a file in the list and use the sliders to **trim** a specific section. Hit **Preview Cut** to listen!
+6. Select your output quality (Standard is safest for older radios).
+7. Click **Convert All Files** and pick where you want to save them (e.g., straight to your radio's SD card `SOUNDS/en` folder!).
+
+---
+
+## 💻 For Developers
+
+Want to tweak the code, change the UI, or build it yourself?
+
+### Setup
 ```bash
 git clone https://github.com/DonDavis-vibe/EdgeTX-Sound-Converter
 cd EdgeTX-Sound-Converter
@@ -23,12 +44,15 @@ pip install -r requirements.txt
 python edgetx_converter.py
 ```
 
-## Building the Executable
-You can easily build your own standalone `.exe` using PyInstaller:
+### Building the `.exe`
+We use PyInstaller to bundle the app. A quick batch script is included for Windows:
 ```bash
-# Using the provided batch script on Windows
 .\build_exe.bat
 ```
 
-## License
-MIT License. Feel free to fork, modify, and distribute!
+---
+
+## 📜 License & Credits
+
+Distributed under the MIT License. Feel free to fork, modify, and distribute!
+Built for the FPV and RC community by **FPV.Davis**.
