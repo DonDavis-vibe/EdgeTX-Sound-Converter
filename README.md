@@ -42,6 +42,31 @@ Because this tool is built with Python and CustomTkinter, it runs natively on an
 
 ---
 
+## 📖 EdgeTX Sound Setup Guide (SD Card & Radio Keys)
+
+### 1. 📂 SD Card File Location
+The startup sound and custom voice prompts for EdgeTX radios are stored directly on your radio's SD card. Place your converted files at the following path:
+👉 `SD Card/SOUNDS/<language_code>/`
+
+For example, if your radio language is set to English:
+- **General voice prompts / switch sounds:** `SD Card/SOUNDS/en/`
+- **System sounds (e.g., startup greeting `hello.wav`):** `SD Card/SOUNDS/en/SYSTEM/hello.wav`
+
+### 2. 🎮 Custom Audio for Specific Buttons & Switches (Optional)
+If you want a specific sound file or custom voice line to play whenever you flip a switch or press a button while using a model:
+
+1. Press the **MDL (or MODEL)** button on your radio to open Model Setup.
+2. Page over to **SPECIAL FUNCTIONS** (or **LOGICAL SWITCHES / SPECIAL FX**, depending on your screen/theme).
+3. Add a new function:
+   - **Switch:** Move the switch or press the button you want to trigger the sound (e.g., `SA↓`).
+   - **Action:** Select `Play Sound` (for built-in beeps) or `Play Track` (to pick a `.wav` file from your SD card).
+   - **Parameters:** Choose the beep pattern or select your converted target sound file.
+
+> [!NOTE]
+> If key sounds still aren't playing after adjusting the volume, double-check that your master volume slider/potentiometer assigned in Radio Setup isn't turned all the way down!
+
+---
+
 ## 💻 Development Setup
 
 Want to tweak the code, change the UI, or build it yourself?

@@ -40,6 +40,9 @@ class EdgeTXConverterApp(ctk.CTk):
         self.subtitle_label = ctk.CTkLabel(self.header_frame, text="Easily prep and trim audio for your radio", font=ctk.CTkFont(size=14), text_color="gray")
         self.subtitle_label.pack()
         
+        self.help_btn = ctk.CTkButton(self.header_frame, text="💡 SD Card & Radio Setup Guide", command=self.show_help_modal, fg_color="#3a7ebf", hover_color="#1f538d", height=32, font=ctk.CTkFont(size=13, weight="bold"))
+        self.help_btn.pack(pady=(10, 0))
+        
         # --- Main Content Frame ---
         self.main_scroll = ctk.CTkScrollableFrame(self, fg_color="transparent")
         self.main_scroll.pack(fill="both", expand=True, padx=20)
@@ -117,6 +120,52 @@ class EdgeTXConverterApp(ctk.CTk):
         # --- Footer ---
         self.footer_label = ctk.CTkLabel(self.main_scroll, text="by FPV.Davis", font=ctk.CTkFont(size=10, slant="italic"), text_color="gray50")
         self.footer_label.pack(pady=(0, 10))
+
+    def show_help_modal(self):
+        modal = ctk.CTkToplevel(self)
+        modal.title("EdgeTX Sound Setup Guide")
+        modal.geometry("620x560")
+        modal.configure(fg_color="#1a1a1a")
+        modal.transient(self)
+        modal.grab_set()
+        
+        scroll = ctk.CTkScrollableFrame(modal, fg_color="transparent")
+        scroll.pack(fill="both", expand=True, padx=20, pady=20)
+        
+        title = ctk.CTkLabel(scroll, text="📖 SD Card & Radio Setup Guide", font=ctk.CTkFont(size=20, weight="bold"), text_color="#3a7ebf")
+        title.pack(pady=(0, 15), anchor="w")
+        
+        help_text = """where to put your converted files:
+
+1. 📂 SD Card File Location
+The startup sound and custom audio prompts for EdgeTX radios are stored on your radio's SD card. You will find or place the files at the following path:
+👉 SD Card/SOUNDS/<language_code>/ (e.g., SD Card/SOUNDS/en/)
+
+If you are replacing built-in system sounds (like the startup greeting 'hello.wav'):
+👉 SD Card/SOUNDS/<language_code>/SYSTEM/hello.wav
+
+For example, if your radio is set to English:
+SD Card/SOUNDS/en/SYSTEM/hello.wav
+
+---
+
+2. 🎮 Custom Audio for Specific Buttons / Switches
+If you want a specific sound file or custom voice line to play whenever you flip a switch or press a button while using a model:
+
+• Press the MDL (or MODEL) button to open Model Setup.
+• Page over to SPECIAL FUNCTIONS (or LOGICAL SWITCHES / SPECIAL FX depending on your screen/theme).
+• Add a new function:
+    - Switch: Move the switch or press the button you want to trigger the sound (e.g., SA↓).
+    - Action: Select 'Play Sound' (for built-in beeps) or 'Play Track' (to pick a .wav file from your SD card).
+    - Parameters: Choose the beep pattern or select your target sound file.
+
+⚠️ Note: If key sounds still aren't playing after adjusting the volume, double-check that your master volume slider/potentiometer assigned in Radio Setup isn't turned all the way down."""
+        
+        label = ctk.CTkLabel(scroll, text=help_text, font=ctk.CTkFont(size=13), justify="left", wraplength=550)
+        label.pack(anchor="w", pady=5)
+        
+        close_btn = ctk.CTkButton(modal, text="Close Guide", command=modal.destroy, fg_color="#2eb82e", hover_color="#248f24", height=40, font=ctk.CTkFont(size=15, weight="bold"))
+        close_btn.pack(pady=15)
 
     def log(self, message):
         def _log():
